@@ -78,7 +78,7 @@ class AuthenticatedNavigation extends React.Component {
       <div>
         <AppBar
           label="Toggle Drawer"
-          title={<div style={{fontWeight: 300, textAlign: "center"}}>American Backflow & Fire Services</div>}
+          title={<div style={{fontWeight: 300, textAlign: "center"}}>Reactiv.io Leads Automation</div>}
           onTitleTouchTap={() => (browserHistory.push('/'))}
           onLeftIconButtonTouchTap={this.handleToggle}
           style={{backgroundColor: "#E0162B"}}
@@ -121,11 +121,6 @@ class AuthenticatedNavigation extends React.Component {
           <MenuItem primaryText="Home" leftIcon={<Home />} containerElement={<Link to="/"/>} onTouchTap={this.handleToggle} />
           <MenuItem primaryText="Documents" leftIcon={<InsertDriveFile />} containerElement={<Link to="/documents"/>} onTouchTap={this.handleToggle} />
           <MenuItem primaryText="Customers" leftIcon={<InsertDriveFile />} containerElement={<Link to="/customers"/>} onTouchTap={this.handleToggle} />
-          <MenuItem primaryText="Facilities" leftIcon={<InsertDriveFile />} containerElement={<Link to="/facilities"/>} onTouchTap={this.handleToggle} />
-          <MenuItem primaryText="Devices" leftIcon={<InsertDriveFile />} containerElement={<Link to="/devices"/>} onTouchTap={this.handleToggle} />
-          <MenuItem primaryText="Testers" leftIcon={<InsertDriveFile />} onTouchTap={this.handleToggle} containerElement={<Link to="/testers"/>} />
-          <MenuItem primaryText="Company Info" leftIcon={<InsertDriveFile />} containerElement={<Link to="/company"/>} />
-          <MenuItem primaryText="Routes" leftIcon={<InsertDriveFile />} onTouchTap={this.handleToggle} />
         </Drawer>
         <Drawer open={this.state.openRightDrawer} openSecondary={true}>
           <AppBar

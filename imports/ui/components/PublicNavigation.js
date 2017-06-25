@@ -65,7 +65,7 @@ export default class PublicNavigation extends React.Component {
       <div>
         <AppBar
           label="Toggle Drawer"
-          title="Application Name"
+          title="Leads Automation"
           onTitleTouchTap={() => (browserHistory.push('/'))}
           showMenuIconButton={false}
           iconElementRight={this.renderSignInButton()}

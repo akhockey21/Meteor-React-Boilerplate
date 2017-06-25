@@ -8,7 +8,6 @@ import container from '../../modules/container';
 
 import { Col, Row } from 'meteor/jimmiebtlr:react-flexbox-grid';
 import ActivityFeed from '../components/extras/justForShow/ActivityFeed';
-import FacilitiesListSpecific from '../components/FacilitiesSpecificList';
 import Paper from 'material-ui/Paper';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -65,11 +64,6 @@ const EditCustomer= ({ customer }) => (customer ? (
                   <RaisedButton label="Connect" primary={false} disabled={true} />
                 </ToolbarGroup>
               </Toolbar>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12}>
-              <FacilitiesListSpecific customerID={ customer && customer._id } />
             </Col>
           </Row>
         </Paper>
