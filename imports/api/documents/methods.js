@@ -1,34 +1,52 @@
-import SimpleSchema from 'simpl-schema';
-import { ValidatedMethod } from 'meteor/mdg:validated-method';
-import Documents from './documents';
-import rateLimit from '../../modules/rate-limit.js';
+import { Meteor } from 'meteor/meteor';
+import { check } from 'meteor/check';
+import Documents from './Documents';
+import rateLimit from '../../modules/rate-limit';
 
-export const upsertDocument = new ValidatedMethod({
-  name: 'documents.upsert',
-  validate: new SimpleSchema({
-    _id: { type: String, optional: true },
-    title: { type: String, optional: true },
-    body: { type: String, optional: true },
-  }).validator(),
-  run(document) {
-    return Documents.upsert({ _id: document._id }, { $set: document });
+Meteor.methods({
+  'documents.insert': function documentsInsert(doc) {
+    check(doc, {
+      title: String,
+      body: String,
+    });
+
+    try {
+      return Documents.insert({ owner: this.userId, ...doc });
+    } catch (exception) {
+      throw new Meteor.Error('500', exception);
+    }
   },
-});
+  'documents.update': function documentsUpdate(doc) {
+    check(doc, {
+      _id: String,
+      title: String,
+      body: String,
+    });
 
-export const removeDocument = new ValidatedMethod({
-  name: 'documents.remove',
-  validate: new SimpleSchema({
-    _id: { type: String },
-  }).validator(),
-  run({ _id }) {
-    Documents.remove(_id);
+    try {
+      const documentId = doc._id;
+      Documents.update(documentId, { $set: doc });
+      return documentId; // Return _id so we can redirect to document after update.
+    } catch (exception) {
+      throw new Meteor.Error('500', exception);
+    }
+  },
+  'documents.remove': function documentsRemove(documentId) {
+    check(documentId, String);
+
+    try {
+      return Documents.remove(documentId);
+    } catch (exception) {
+      throw new Meteor.Error('500', exception);
+    }
   },
 });
 
 rateLimit({
   methods: [
-    upsertDocument,
-    removeDocument,
+    'documents.insert',
+    'documents.update',
+    'documents.remove',
   ],
   limit: 5,
   timeRange: 1000,

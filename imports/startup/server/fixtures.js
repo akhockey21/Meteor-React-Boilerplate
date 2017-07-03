@@ -1,23 +1,54 @@
+import seeder from '@cleverbeagle/seeder';
 import { Meteor } from 'meteor/meteor';
-import { Roles } from 'meteor/alanning:roles';
-import { Accounts } from 'meteor/accounts-base';
+import Documents from '../../api/Documents/Documents';
 
-if (!Meteor.isProduction) {
-  const users = [{
+const documentsSeed = userId => ({
+  collection: Documents,
+  environments: ['development', 'staging'],
+  noLimit: true,
+  modelCount: 5,
+  model(dataIndex) {
+    return {
+      owner: userId,
+      title: `Document #${dataIndex + 1}`,
+      body: `This is the body of document #${dataIndex + 1}`,
+    };
+  },
+});
+
+seeder(Meteor.users, {
+  environments: ['development', 'staging'],
+  noLimit: true,
+  data: [{
     email: 'admin@admin.com',
     password: 'password',
     profile: {
-      name: { first: 'Carl', last: 'Winslow' },
+      name: {
+        first: 'Andy',
+        last: 'Warhol',
+      },
     },
     roles: ['admin'],
-  }];
-
-  users.forEach(({ email, password, profile, roles }) => {
-    const userExists = Meteor.users.findOne({ 'emails.address': email });
-
-    if (!userExists) {
-      const userId = Accounts.createUser({ email, password, profile });
-      Roles.addUsersToRoles(userId, roles);
-    }
-  });
-}
+    data(userId) {
+      return documentsSeed(userId);
+    },
+  }],
+  modelCount: 5,
+  model(index, faker) {
+    const userCount = index + 1;
+    return {
+      email: `user+${userCount}@test.com`,
+      password: 'password',
+      profile: {
+        name: {
+          first: faker.name.firstName(),
+          last: faker.name.lastName(),
+        },
+      },
+      roles: ['user'],
+      data(userId) {
+        return documentsSeed(userId);
+      },
+    };
+  },
+});

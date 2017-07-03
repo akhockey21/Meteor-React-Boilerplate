@@ -1,9 +1,9 @@
+/* eslint-disable consistent-return */
+
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
-import { Factory } from 'meteor/dburles:factory';
 
 const Documents = new Mongo.Collection('Documents');
-export default Documents;
 
 Documents.allow({
   insert: () => false,
@@ -18,6 +18,24 @@ Documents.deny({
 });
 
 Documents.schema = new SimpleSchema({
+  owner: {
+    type: String,
+    label: 'The ID of the user this document belongs to.',
+  },
+  createdAt: {
+    type: String,
+    label: 'The date this document was created.',
+    autoValue() {
+      if (this.isInsert) return (new Date()).toISOString();
+    },
+  },
+  updatedAt: {
+    type: String,
+    label: 'The date this document was last updated.',
+    autoValue() {
+      if (this.isInsert || this.isUpdate) return (new Date()).toISOString();
+    },
+  },
   title: {
     type: String,
     label: 'The title of the document.',
@@ -30,7 +48,4 @@ Documents.schema = new SimpleSchema({
 
 Documents.attachSchema(Documents.schema);
 
-Factory.define('document', Documents, {
-  title: () => 'Factory Title',
-  body: () => 'Factory Body',
-});
+export default Documents;
