@@ -16,8 +16,8 @@ export default MuiTheme = getMuiTheme({
   spacing: spacing,
   fontFamily: 'Roboto, sans-serif',
   palette: {
-    primary1Color: "#E0162B",
-    primary2Color: blue500,
+    primary1Color: blue500,
+    primary2Color: red500,
     primary3Color: grey400,
     accent1Color: grey100,
     accent2Color: grey300,
@@ -36,7 +36,7 @@ export default MuiTheme = getMuiTheme({
     height: 65,
   },
   avatar: {
-    color: "#E0162B",
+    color: grey500,
     backgroundColor: white,
   },
   drawer: {

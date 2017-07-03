@@ -79,10 +79,9 @@ class AuthenticatedNavigation extends React.Component {
       <div>
         <AppBar
           label="Toggle Drawer"
-          title={<div style={{fontWeight: 300, textAlign: "center"}}>Reactiv.io Leads Automation</div>}
+          title={<div style={{fontWeight: 300, textAlign: "center"}}>Reactiv.io Boilerplate</div>}
           onTitleTouchTap={() => (browserHistory.push('/'))}
           onLeftIconButtonTouchTap={this.handleToggle}
-          style={{backgroundColor: "#E0162B"}}
           iconElementRight={<MoreVertIcon />}
           iconElementRight={
             <div>
@@ -117,7 +116,6 @@ class AuthenticatedNavigation extends React.Component {
           <AppBar
             title="Menu"
             onLeftIconButtonTouchTap={this.handleToggle}
-            style={{backgroundColor: "#0052A5"}}
           />
           <MenuItem primaryText="Home" leftIcon={<Home />} containerElement={<Link to="/"/>} onTouchTap={this.handleToggle} />
           <MenuItem primaryText="Documents" leftIcon={<InsertDriveFile />} containerElement={<Link to="/documents"/>} onTouchTap={this.handleToggle} />
@@ -126,7 +124,6 @@ class AuthenticatedNavigation extends React.Component {
         <Drawer open={this.state.openRightDrawer} openSecondary={true}>
           <AppBar
             title="Activity"
-            style={{backgroundColor: "#0052A5"}}
             onLeftIconButtonTouchTap={this.handleToggleRight} />
           <p style={{marginLeft: 10}}>Who's Online</p>
           <div className="chat-window ng-scope" data-ng-controller="ChatWindowCtrl as chatwindow" style={{overflow: 'visible'}}>

@@ -19,16 +19,6 @@ input:-webkit-autofill:focus {
   -webkit-text-fill-color: #333;
 }
 
-.bert-alert.success {
-  background: #0052A5;
-  color: #fff;
-}
-
-.bert-alert.danger {
-  background: #E0162B;
-  color: #fff;
-}
-
 .griddle {
     padding: 10px;
 }
