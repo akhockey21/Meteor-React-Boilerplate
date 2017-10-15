@@ -116,7 +116,6 @@ class AuthenticatedNavigation extends React.Component {
           />
           <MenuItem primaryText="Home" leftIcon={<Home />} containerElement={<Link to="/"/>} onTouchTap={this.handleToggle} />
           <MenuItem primaryText="Documents" leftIcon={<InsertDriveFile />} containerElement={<Link to="/documents"/>} onTouchTap={this.handleToggle} />
-          <MenuItem primaryText="Customers" leftIcon={<InsertDriveFile />} containerElement={<Link to="/customers"/>} onTouchTap={this.handleToggle} />
         </Drawer>
         <Drawer open={this.state.openRightDrawer} openSecondary={true}>
           <AppBar
