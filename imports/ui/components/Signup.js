@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Formsy from 'formsy-react';
-import { Col } from 'meteor/jimmiebtlr:react-flexbox-grid';
+import { Col } from 'react-bootstrap';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import { FormsyText } from 'formsy-material-ui/lib';

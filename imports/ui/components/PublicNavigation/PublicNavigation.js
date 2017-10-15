@@ -77,6 +77,7 @@ export default class PublicNavigation extends React.Component {
             open={this.state.open}
             onRequestClose={this.handleClose.bind(this)}
             contentStyle={customContentStyle}
+            autoScrollBodyContent={true}
           >
             {this.renderDialog()}
         </Dialog>

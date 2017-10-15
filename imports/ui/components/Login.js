@@ -6,7 +6,7 @@ import { browserHistory } from 'react-router';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import { FormsyText } from 'formsy-material-ui/lib';
-import { Col } from 'meteor/jimmiebtlr:react-flexbox-grid';
+import { Col } from 'react-bootstrap';
 import handleLogin from '../../modules/login';
 
 export default class Login extends React.Component {

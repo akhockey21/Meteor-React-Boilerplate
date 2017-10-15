@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
-import { Col, Row } from 'meteor/jimmiebtlr:react-flexbox-grid';
+import { Col, Row } from 'react-bootstrap';
 import TextField from 'material-ui/TextField';
 import Checkbox from 'material-ui/Checkbox';
 import _ from 'lodash';
