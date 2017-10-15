@@ -97,7 +97,7 @@ class AuthenticatedNavigation extends React.Component {
                   targetOrigin={{ horizontal: 'right', vertical: 'top' }}
                   onRequestClose={this.handleRequestClose.bind(this)}
                 >
-                  <p style={{marginLeft: 10}}>{this.userName()}</p>
+                  <p style={{marginLeft: 10, marginTop: 10}}>{this.userName()}</p>
                   <Menu>
                     <MenuItem leftIcon={<ExitToApp/>} primaryText="Sign out" onTouchTap={() => this.props.history.push('/logout')}/>
                   </Menu>
