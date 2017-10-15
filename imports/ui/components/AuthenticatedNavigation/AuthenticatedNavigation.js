@@ -76,7 +76,7 @@ class AuthenticatedNavigation extends React.Component {
       <div>
         <AppBar
           label="Toggle Drawer"
-          title={<div style={{fontWeight: 300, textAlign: "center"}}>Reactiv.io Boilerplate</div>}
+          title={<div style={{fontWeight: 300, textAlign: "center"}}>Your Company</div>}
           onTitleTouchTap={() => (browserHistory.push('/'))}
           onLeftIconButtonTouchTap={this.handleToggle}
           iconElementRight={<MoreVertIcon />}

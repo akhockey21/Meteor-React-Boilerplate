@@ -13,7 +13,7 @@ const copyrightYear = () => {
 const Footer = () => (
   <div className="Footer">
     <Grid>
-      <p className="pull-left">&copy; {copyrightYear()} Reactiv.io Boilerplate</p>
+      <p className="pull-left">&copy; {copyrightYear()} Your Company</p>
       <ul className="pull-right">
         <li><Link to="/terms">Terms<span className="hidden-xs"> of Service</span></Link></li>
         <li><Link to="/privacy">Privacy<span className="hidden-xs"> Policy</span></Link></li>
