@@ -1,8 +1,8 @@
-### Pup
-A boilerplate for products.
+### Pup (Material-Ui Edition)
+A boilerplate for products. (With Material-Ui)
 
-[Read the Documentation](http://cleverbeagle.com/pup)
+[Read the Boilerplate Documentation](http://cleverbeagle.com/pup)
+[Read the Material-Ui Documentation](http://www.material-ui.com)
 
 ---
-
-Need help and want to stay accountable building your product? [Check out Clever Beagle](http://cleverbeagle.com).
+Also with Formsy and Formsy Material-Ui for form validation.
